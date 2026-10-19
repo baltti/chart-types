@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "visualisation.html#дюжина-датазавр-datasaurus-dozen",
+    "href": "visualisation.html#дюжина-датазавр-datasaurus-dozen",
+    "title": "Визуализация данных",
+    "section": "Дюжина датазавр (Datasaurus dozen)",
+    "text": "Дюжина датазавр (Datasaurus dozen)\n\nИсточник: https://jumpingrivers.github.io/datasauRus/"
+  },
+  {
+    "objectID": "visualisation.html#вариации-столбчатого-графика",
+    "href": "visualisation.html#вариации-столбчатого-графика",
+    "title": "Визуализация данных",
+    "section": "Вариации столбчатого графика",
+    "text": "Вариации столбчатого графика\n\n\n\nстолбчатый с группировкой;\nледенцовый (lollipop chart).\n\n\n\n\nИсточник: https://datavizcatalogue.com/RU/metody/stolbikovaja_diagramma_s_gruppirovkoj.html\n\n\n\n\n\n\n\n\n\n\n\nИсточник: https://baltti.github.io/workshop-DH21/ggplot2-tutorial-DH.html\n\n\n\n—\n\n\n\n\n\n\n\nПредупреждение\n\n\nЛучше не закручивать слобцы графика по кругу.\nСравнивать между собой длины прямых отрезков/столбцов на глаз нам гораздо проще, чем длины дуг.\n\n\n\n\n\n\nИсточник: https://datavizcatalogue.com/RU/metody/radialnaja_poloscataja_diagramma.html"
+  },
+  {
+    "objectID": "visualisation.html#датазаврова-дюжина-datasaurus-dozen",
+    "href": "visualisation.html#датазаврова-дюжина-datasaurus-dozen",
+    "title": "Визуализация данных",
+    "section": "Датазаврова дюжина (Datasaurus dozen)",
+    "text": "Датазаврова дюжина (Datasaurus dozen)\n\nИсточник: https://jumpingrivers.github.io/datasauRus/"
+  }
+]

@@ -1,0 +1,573 @@
+---
+title: "Визуализация данных"
+author: "Балтыжакова Татьяна Игоревна"
+format: 
+  revealjs:
+    slide-number: true
+    theme: [default, custom.css]
+    footer: "Балтыжакова Т.И. Консультации по НИР"
+    margin: 0.1
+    reference-location: document
+    width: 1800
+    height: 1000
+    auto-stretch: true
+---
+
+В рамках вашей НИР-1 одна из основных задач - выявить и идентифировать проблему, проявления которой вам необходимо подтверждать статистическими данными.
+
+::: callout-important
+**Визуализация данных - это их графическое представление**. В нашем случае скорее всего на графиках и картах.
+
+Про карты мы с вами поговорим отдельно в рамках [дисциплины](https://baltti.github.io/gis-masters-course/).
+:::
+
+::: callout-note
+## Зачем нам вообще визуализировать данные и делать графики?
+
+- упрощает восприятие данных;
+
+- иллюстрация закономерностей и взаимосвязей;
+
+- четкая и простая коммуникация данных;
+
+- направляет внимание аудитории на важные характеристики.
+:::
+
+# Квартет Энскомба
+
+::::: columns
+::: {.column width="60%"}
+![Источник: Источник: Anscombe, F. J. (1973). Graphs in Statistical Analysis. The American Statistician, 27(1), 17–21. https://doi.org/10.1080/00031305.1973.10478966](images/clipboard-159594031.png){width="1237"}
+:::
+
+::: {.column width="40%"}
+Набор из 4 датасетов с **одинаковыми статистическими характеристиками, но разными распределениями**.
+:::
+:::::
+
+## Датазаврова дюжина (Datasaurus dozen)
+
+![Источник: https://jumpingrivers.github.io/datasauRus/](images/DinoSequentialSmaller.gif){fig-align="center"}
+
+------------------------------------------------------------------------
+
+::: r-fit-text
+Общий процесс подготовки графика состоит из четырех этапов:
+
+1.  Определиться с тем, что необходимо показать на графике
+
+2.  Выбрать тип графика
+
+3.  Убрать все лишнее и отвлекающее
+
+4.  Выделить самое важное
+
+И ваш график великолепен!
+:::
+
+---
+
+> **Соотношение данных и чернил (data ink ratio)**, которое должно показывать количество информации, отображаемое определенным количеством чернили (или пикселей). Идеальным соотношением является единица, то есть количество информации соответствует количеству затраченных графических элементов.
+>
+> *Эдвард Тафти “Визуальное представление количественной информации” (Edward Tufte “The Visual Display of Quantitative Information”)*
+
+Цель этого соотношения данных и чернил состоит в том, чтобы устранить избыточность визуализации так, чтобы она по-прежнему отображала необходимую информацию, но при этом была легко воспринимаемой. *Все, что не несет значимой информации должно быть убрано: метки осей, иногда сами оси, подписи и маркеры линий, линии сетки.*
+
+------------------------------------------------------------------------
+
+```{=html}
+<video width="1500" height="900" controls>
+  <source src="Преподавание/Для лекции про графики/Переделка графика бюджетного планирования - Excel дата сторителлинг Краткая версия [get.gt].mp4" type="video/mp4">
+</video>
+```
+
+------------------------------------------------------------------------
+
+![Источник: https://www.datawrapper.de/blog/better-charts](images/clipboard-496526337.png){fig-align="center"}
+
+---
+
+Основные цели создания визуализаций, от которых будет зависеть выбор конкретной методики ее подготовки:
+
+- **описание**, то есть простое и ясное представление имеющихся данных;
+
+- **исследование** - визуализация как что-то что позволяет аудитории увидеть неочевидные на первый взгляд закономерности и паттерны;
+
+- **организация** - представление данных в четком и структурированном виде;
+
+- **декоративность** - создание визуально привлекательной картинки, зачастую вызывающей определенный эмоциональный отклик, но не всегда точной.
+
+# Как выбрать нужный тип графика?
+
+**В первую очередь это зависит от того, что именно вы хотите показать на нем:**
+
+- сравнение
+
+- отклонение или разницу
+
+- целое и его части
+
+- иерархию
+
+- динамику изменений во времени
+
+- распределение
+
+- связь показателей друг с другом
+
+- этапы или процесс
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="40%"}
+Можно воспользоваться готовыми шпаргалками для выбора графика:
+
+- на русском <https://t.me/chartomojka/1259>
+
+- на английском от издания [Financial Times](https://github.com/Financial-Times/chart-doctor/tree/main/visual-vocabulary)
+
+- еще одна интерактивная на английском [по ссылке](https://public.tableau.com/views/WhichChartShouldYouUseTryThisInteractiveFlowchart/FlowChart?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+:::
+
+::: {.column width="60%"}
+
+![](images/clipboard-482134696.png){fig-align="center" width="680"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+![](images/clipboard-3000775459.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+Если вы хотите показать на графике ***сравнение показателей друг с другом***, то вам нужен **столбчатый график** или его вариации.
+
+::: callout-note
+Столбчатый график прекрасен своей *простотой и однозначностью восприятия* (если, конечно, вы подготовили его правильно), так как **визуально сравнивать высоту столбиков между собой нам проще всего**.
+:::
+
+::: callout-warning
+**Не путайте столбчатый график с гистограммой!**
+
+В гистограмме высота столбика означает количество объектов, попавших в определенных интервал (как правило, показаны по оси Х), а в столбчатом графике высота столбца - это значение конкретного показателя.
+:::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/stolbikovaja_diagramma.html](images/clipboard-336369571.png){fig-align="center" width="842"}
+:::
+
+::: {.column width="50%"}
+![Источник: https://baltti.github.io/workshop-DH21/ggplot2-tutorial-DH.html](images/clipboard-4182297072.png){fig-align="center" width="1120"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+:::::: columns
+::: {.column width="70%"}
+![Источник: https://journals.vgtu.lt/index.php/GAC/article/view/11980](images/clipboard-115742917.png){fig-align="center" width="1050"}
+:::
+
+:::: {.column width="30%"}
+::: callout-note
+**На столбчатых графиках данные лучше ранжировать по возрастанию/убыванию**
+
+так они намного проще читаются и воспринимаются.
+:::
+::::
+::::::
+
+------------------------------------------------------------------------
+
+::: callout-warning
+**Не надо добавлять столбикам трехмерность, она только исказит значения на графике.**
+:::
+
+![Источник: https://lovestats.wordpress.com/2011/03/17/i-diss-3d-pie-charts-yet-again-mrx/](images/clipboard-548874789.png){fig-align="center" width="515"}
+
+------------------------------------------------------------------------
+
+::: callout-important
+**Шкала столбчатых графиков должна начинаться с нуля!**
+
+Если шкала будет начинаться от какого-то другого значения, то вы исказите общую картину данных и сравнение высоты столбцов будет некорректным.
+:::
+
+![Источник: https://www.practicalreporting.com/blog/2021/12/4/do-i-need-to-include-zero-in-my-charts-scale-its-surprisingly-complicated](images/clipboard-671528944.png){fig-align="center"}
+
+## Вариации столбчатого графика
+
+::::: columns
+::: {.column .r-fit-text width="50%"}
+- **столбчатый с группировкой**;
+
+- **леденцовый** (lollipop chart).
+
+![Источник: https://datavizcatalogue.com/RU/metody/stolbikovaja_diagramma_s_gruppirovkoj.html](images/clipboard-340618713.png){fig-align="center" width="445"}
+:::
+
+::: {.column .r-fit-text width="50%"}
+![](images/clipboard-3040749662.png){fig-align="center" width="560"}
+
+![Источник: https://baltti.github.io/workshop-DH21/ggplot2-tutorial-DH.html](images/clipboard-2546917915.png){fig-align="center" width="560"}
+:::
+:::::
+
+---\
+
+::: callout-caution
+Лучше не закручивать слобцы графика по кругу.
+
+Сравнивать между собой длины прямых отрезков/столбцов на глаз нам гораздо проще, чем длины дуг.
+:::
+
+![Источник: https://datavizcatalogue.com/RU/metody/radialnaja_poloscataja_diagramma.html](images/clipboard-60285502.png){fig-align="center" width="1458"}
+
+------------------------------------------------------------------------
+
+Если вы хотите показать ***отклонение или разницу между показателями***, то вам могут подойти:
+
+- **расходящийся график**, на котором отрицательные значения отклонения или разницы показаны влево от вертикальной оси, а положительные - вправо;
+
+- **расходящийся с накоплением** - хорошо подходит для отображения результатов опросов с негативным и позитивным мнением;
+
+- **наклонный график (slope chart)**;
+
+- **гантельный график** (dumbbell chart).
+
+------------------------------------------------------------------------
+
+![Источник: https://journals.vgtu.lt/index.php/GAC/article/view/11980](images/clipboard-2928829494.png){fig-align="center" width="750"}
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column .r-fit-text width="50%"}
+![](images/clipboard-1972681950.png){fig-align="center" width="565"}
+
+![Источник: https://www.storytellingwithdata.com/blog/2020/7/27/what-is-a-slopegraph](images/clipboard-1641553961.png){fig-align="center" width="353"}
+:::
+
+::: {.column .r-fit-text width="50%"}
+![](images/clipboard-1367338133.png){fig-align="center" width="433"}
+
+![Источник: https://www.storytellingwithdata.com/blog/2014/03/more-on-slopegraphs](images/clipboard-514312622.png){fig-align="center" width="339"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+Если вам нужно показать ***целое и его части***, то лучше всего подойдут:
+
+- **столбчатый график с накоплением**;
+
+- **круговая диаграмма** - но только в том случае, если у вас немного категорий;
+
+- **вафельная диаграмма (waffle chart)** идеально подходит тогда, когда нужно показать часть от 100 %;
+
+- **тримап (treemap)**.
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column .r-fit-text width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/nakopitel_naja_linejcataja_diagramma.html](images/clipboard-472591325.png){fig-align="center" width="693"}
+:::
+
+::: {.column .r-fit-text width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/krugovaja_diagramma.html](images/clipboard-3606563252.png){fig-align="center" width="609"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column .r-fit-text width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/nakopitel_naja_linejcataja_diagramma.html](images/clipboard-472591325.png){fig-align="center" width="779"}
+:::
+
+::: {.column .r-fit-text width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/kolcevaja_diagramma.html](images/clipboard-3392785784.png){fig-align="center" width="639"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-491663112.png){fig-align="center" width="900"}
+:::
+
+::: {.column width="50%"}
+![Источник: https://r-graph-gallery.com/407-geom-waffle-multiple-groups.html](images/clipboard-1004356643.png){fig-align="center"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+![Источник: https://flowingdata.com/2023/12/07/fields-of-study-and-the-jobs-of-young-people-with-higher-incomes/](images/clipboard-2642359432.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+Как **не надо делать круговые диаграммы** (вообще никогда не надо, даже, если вам очень сильно нравится).
+
+::::: columns
+::: {.column width="50%"}
+![Источник: https://www.datavis.ca/gallery/evil-pies.php](images/clipboard-2456099274.png){fig-align="center" width="667"}
+:::
+
+::: {.column width="50%"}
+**Здесь плохо то, что сумма трех категорий больше 100%**
+
+На круговых диаграммах сумма по всем категориям должна быть 100 %!
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![Источник: https://polsci.umass.edu/toplines-and-crosstabs-jan-2023-2024-gop-presidential-candidates-house-representatives-and-2022, https://medium.com/learning-data/hall-of-shame-pie-charts-that-should-have-never-been-baked-d4030778c9ee](images/clipboard-458093607.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+**Слишком много категорий**
+
+На круговых диаграммах рекомендуется использовать максимум 5-7 категорий, иначе будет слишком сложно воспринимать данные
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="60%"}
+![Источник: https://polsci.umass.edu/toplines-and-crosstabs-jan-2023-2024-gop-presidential-candidates-house-representatives-and-2022, https://medium.com/learning-data/hall-of-shame-pie-charts-that-should-have-never-been-baked-d4030778c9ee](images/clipboard-3462517087.png){fig-align="center" width="1093"}
+:::
+
+::: {.column width="40%"}
+**Комбо трехмерности и большого количества категорий дает абсолютно нечитаемый график**
+
+Не нужно делать их трехмерными вообще никогда, даже если очень хочется
+:::
+:::::
+
+------------------------------------------------------------------------
+
+Если вы отображаете на графике ***иерархию***, то лучше воспользоваться **древовидным графиком (treemap) или диаграммой "солнечные лучи"**.
+
+![Источник: https://datavizcatalogue.com/RU/metody/drevovidnaja_karta.html](images/clipboard-3624310608.png){fig-align="center" width="1141"}
+
+------------------------------------------------------------------------
+
+![Источник: https://www.bloomberg.com/graphics/2021-palm-oil-deforestation-climate-change/?terminal=true](images/clipboard-1201436169.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+Для отображения ***изменений во времени*** лучше (и проще) всего использовать обычный [**линейный график**]{.underline}. В качестве альтернатив ему можно использовать:
+
+- **столбчатый график**, но при этом желательно, чтобы он отображал *только один временной ряд*, для нескольких лучше все-таки линейный график;
+
+- **наклонный график** (slope chart);
+
+- **гантельный график** (dumbbell chart);
+
+- **площадной график**, который лучше всего будет показывать динамику целого и самого нижнего ряда;
+
+- **потоковый график**, который подойдет в том случае, если вы хотите показать изменение доли от целого.
+
+------------------------------------------------------------------------
+
+![Источник: https://baltti.github.io/workshop-DH21/ggplot2-tutorial-DH.html](images/clipboard-3522554470.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="70%"}
+![Источник: https://baltti.github.io/workshop-DH21/ggplot2-tutorial-DH.html](images/clipboard-918438399.png){fig-align="center"}
+:::
+
+::: {.column width="30%"}
+Не очень удачный график, потому что тут слишком много разноцветных линий, которые слишком сильно пересекаются друг с другом, особенно в нижней части графика.
+:::
+:::::
+
+------------------------------------------------------------------------
+
+![](images/clipboard-3427871435.png){fig-align="center" width="1437"}
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-1267550368.png){fig-align="center" width="1150"}
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-1821106067.png){fig-align="center" width="1153"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-864255596.png)
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-542013337.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column .r-fit-text width="30%"}
+![Источник: https://datavizcatalogue.com/RU/metody/potokovyj_grafik.html](images/clipboard-2081293249.png){fig-align="center" width="700"}
+:::
+
+::: {.column width="70%"}
+![](images/clipboard-2431397418.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+![Источник: https://journals.vgtu.lt/index.php/GAC/article/view/11980](images/clipboard-3581211422.png){fig-align="center" width="833"}
+
+------------------------------------------------------------------------
+
+Для отображения ***распределения*** величины наиболее простым и распространенным способом является [**гистограмма**]{.underline} (*! еще одно напоминание не путать ее со столбчатым графиком*), а также различные вариации точечного графика: **штрихкод, ящик с усами (boxplot), violin plot, raincloud plot** и прочие.
+
+::::: columns
+::: {.column width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/gistogramma.html](images/clipboard-3388674222.png){fig-align="center" width="516"}
+:::
+
+::: {.column width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/grafik_plotnosti.html](images/clipboard-3307489946.png){fig-align="center" width="497"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+![](images/clipboard-1890459179.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+![Источник: https://t.me/nastengraph/4450](images/clipboard-2173822826.png){fig-align="center" width="1855"}
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-931800991.png){fig-align="center" width="1212"}
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-2016673425.png){fig-align="center" width="1163"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-3452748985.png){fig-align="center" width="1232"}
+:::
+
+::: {.column width="50%"}
+![Источник: https://baltti.github.io/workshop-DH21/ggplot2-tutorial-DH.html](images/clipboard-2788207141.png){fig-align="center" width="1242"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-4099946586.png)
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-3054525165.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+***Корреляцию переменных или связь*** между ними наиболее просто и понятно можно отобразить с помощью [**графика рассеяния**]{.underline}, вариацией которого будет **пузырьковый график** (в нем добавляется дополнительное измерение к данным за счет размера символа), а также **тепловая карта**.
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-4207948204.png){fig-align="center" width="980"}
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-1626474273.png){fig-align="center" width="980"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+![Источник: https://datavizcatalogue.com/RU/metody/puzyrkovaja_diagramma.html](images/clipboard-1539599699.png){fig-align="center" width="644"}
+
+------------------------------------------------------------------------
+
+![Источник: https://datastart.ru/blog/read/seaborn-heatmaps-13-sposobov-nastroit-vizualizaciyu-matricy-korrelyacii](images/clipboard-3807207684.png){fig-align="center" width="1964"}
+
+------------------------------------------------------------------------
+
+Для отображения ***этапов или процесса*** лучше всего подходит **график Санкея или диаграмма Ганта**.
+
+::::: columns
+::: {.column width="50%"}
+![Источник: https://datavizcatalogue.com/RU/metody/diagramma_sankeja.html](images/clipboard-777184510.png){fig-align="center" width="1028"}
+:::
+
+::: {.column width="50%"}
+![Источник: https://aspro.cloud/pm/docs/gantt-diagram/](images/clipboard-4233615259.png){fig-align="center"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+![Источник: https://t.me/data_publication/1595](images/clipboard-1550672303.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="50%"}
+![](images/clipboard-2391569604.png)
+:::
+
+::: {.column width="50%"}
+![Источник: https://www.storytellingwithdata.com/blog/what-is-a-sankey-diagram](images/clipboard-1997049015.png){fig-align="center"}
+:::
+:::::
+
+# **Нужно ли включать ноль в шкалу на графике?**
+
+![Источник: https://www.practicalreporting.com/blog/2021/12/4/do-i-need-to-include-zero-in-my-charts-scale-its-surprisingly-complicated](images/clipboard-3434130391.png){fig-align="center"}
+
+# Каким инструментом пользоваться?
+
+. . .
+
+*Таким, которым вам удобно :)*
+
+Некоторые варианты, не требующие больших затрат для освоения:
+
+- Бесплатный курс по визуализации данных в Excel <https://stepik.org/course/250190/promo>
+
+- Excel ([Туториалы по графикам в Excel (англ.)](https://youtube.com/playlist?list=PLwEff2aXpeWuz9fJrQLxmr5pnyoaESIka&si=NSPgWKdZo2Oj9Xp3))
+
+- Datawrapper <https://www.datawrapper.de/>
+
+- RAWgraphs <https://www.rawgraphs.io/>
+
+. . .
