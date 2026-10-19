@@ -203,12 +203,12 @@ format:
 ## Вариации столбчатого графика
 
 ::::: columns
-::: {.column .r-fit-text width="50%"}
+::: {.column width="50%"}
 - **столбчатый с группировкой**;
 
 - **леденцовый** (lollipop chart).
 
-![Источник: https://datavizcatalogue.com/RU/metody/stolbikovaja_diagramma_s_gruppirovkoj.html](images/clipboard-340618713.png){fig-align="center" width="445"}
+![Источник: https://datavizcatalogue.com/RU/metody/stolbikovaja_diagramma_s_gruppirovkoj.html](images/clipboard-340618713.png){.r-fit-text fig-align="center" width="534"}
 :::
 
 ::: {.column .r-fit-text width="50%"}
@@ -248,15 +248,15 @@ format:
 
 ::::: columns
 ::: {.column .r-fit-text width="50%"}
-![](images/clipboard-1972681950.png){fig-align="center" width="565"}
+![](images/clipboard-1972681950.png){fig-align="center" width="659"}
 
-![Источник: https://www.storytellingwithdata.com/blog/2020/7/27/what-is-a-slopegraph](images/clipboard-1641553961.png){fig-align="center" width="353"}
+![Источник: https://www.storytellingwithdata.com/blog/2020/7/27/what-is-a-slopegraph](images/clipboard-1641553961.png){fig-align="center" width="398"}
 :::
 
 ::: {.column .r-fit-text width="50%"}
-![](images/clipboard-1367338133.png){fig-align="center" width="433"}
+![](images/clipboard-1367338133.png){fig-align="center" width="494"}
 
-![Источник: https://www.storytellingwithdata.com/blog/2014/03/more-on-slopegraphs](images/clipboard-514312622.png){fig-align="center" width="339"}
+![Источник: https://www.storytellingwithdata.com/blog/2014/03/more-on-slopegraphs](images/clipboard-514312622.png){fig-align="center" width="382"}
 :::
 :::::
 
